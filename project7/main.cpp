@@ -232,6 +232,7 @@ int main(int argc, char** argv)
         cout << "5. Flood fill" << endl;
         cout << "6. Boggle" << endl;
         cout << "7. Linked List unit test" << endl;
+        cout << "8. Merge Sort" << endl;
         cout << "> ";
         string option;
         getline(cin, option);
@@ -270,6 +271,22 @@ int main(int argc, char** argv)
             other.print();
             list.pop_front();
             cout << "passed" << endl;
+        } else if (option.compare("8") == 0) {
+            LinkedList wordList;
+            for (unsigned int i = 0; i < lex.size(); i++) {
+                string elem = lex[i];
+                wordList.push_back(elem);
+            }
+
+            lex.clear();
+
+            int comparisons = 0;
+            wordList.sort(comparisons);
+            int size = wordList.size();
+            for (int i = 0; i < size; i++) {
+                lex.push_back(wordList.pop_front());
+            }
+            cout << "comparisons: " << comparisons << endl;
         } else {
             cout << option << " was not one of the options. Quitting." << endl;
             break;
